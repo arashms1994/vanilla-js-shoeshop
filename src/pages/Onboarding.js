@@ -1,25 +1,10 @@
+import { router } from "../routes/Router";
 import El from "../utils/create-element";
-
-export default function Onboarding() {}
-
-const Onboarding1 = El({
-  element: "div",
-  chidren: [logo(), spinner()],
-  className: "flex flex-col justify-center items-center pt-96 px-24",
-});
-
-function logo() {
-  return El({
-    element: "div",
-    chidren: [logoIcon(), logoTitle()],
-    className: "flex gap-3 justify-center items-center mb-80",
-  });
-}
 
 function logoIcon() {
   return El({
     element: "div",
-    chidren: [
+    children: [
       El({
         element: "img",
         src: "../assets/logo.svg",
@@ -33,7 +18,7 @@ function logoIcon() {
 function logoTitle() {
   return El({
     element: "div",
-    chidren: [
+    children: [
       El({
         element: "h1",
         innerText: "Shoea",
@@ -47,7 +32,7 @@ function spinner() {
   El({
     element: "div",
     className: "w-12 h-12 bg-white",
-    chidren: [
+    children: [
       El({
         element: "img",
         src: "../assets/spinner.svg",
@@ -57,12 +42,13 @@ function spinner() {
   });
 }
 
-const welcome = El({
-  element: "div",
-  className:
-    "bg-[url('../assets/welcome-bg.jpg')] pt-[629px] px-8 flex flex-col justify-center items-center",
-  children: [welcomeTitle(), welcomeBrandName(), welcomeDescription()],
-});
+function logo() {
+  return El({
+    element: "div",
+    children: [logoIcon, logoTitle],
+    className: "flex gap-3 justify-center items-center mb-80",
+  });
+}
 
 const welcomeTitle = El({
   element: "h2",
@@ -82,3 +68,24 @@ const welcomeDescription = El({
     "The best sneakers & shoes e-commerse app of the century for your fashion needs!",
   className: "text-base font-semibold text-white",
 });
+
+const Onboarding1 = El({
+  element: "div",
+  children: [logo(), spinner()],
+  className: "flex flex-col justify-center items-center pt-96 px-24",
+});
+
+const welcome = El({
+  element: "div",
+  className:
+    "bg-[url('../assets/welcome-bg.jpg')] pt-[629px] px-8 flex flex-col justify-center items-center",
+  children: [welcomeTitle(), welcomeBrandName(), welcomeDescription()],
+});
+
+export default function OnboardingPage() {
+  const container = El({
+    element: "div",
+    children: "hello",
+  });
+  return container;
+}
