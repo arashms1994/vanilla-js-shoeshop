@@ -2,7 +2,7 @@ import El from "../utils/create-element";
 
 export default function Onboarding() {}
 
-let Onboarding1 = El({
+const Onboarding1 = El({
   element: "div",
   chidren: [logo(), spinner()],
   className: "flex flex-col justify-center items-center pt-96 px-24",
@@ -57,15 +57,28 @@ function spinner() {
   });
 }
 
-let welcome = El({
-    element: "div",
-    className: "bg-[url('../assets/welcome-bg.jpg')] pt-[629px] pl-8 flex flex-col justify-center items-center",
-    children: [
+const welcome = El({
+  element: "div",
+  className:
+    "bg-[url('../assets/welcome-bg.jpg')] pt-[629px] px-8 flex flex-col justify-center items-center",
+  children: [welcomeTitle(), welcomeBrandName(), welcomeDescription()],
+});
 
-    ]
-})
+const welcomeTitle = El({
+  element: "h2",
+  innerText: "Welcome To 👋",
+  className: "text-white text-4xl font-semibold mb-4",
+});
 
-let welcomeTitle = El({
-    element: "div",
-    className: "flex justify-center items-center gap-4"
-})
+const welcomeBrandName = El({
+  element: "h1",
+  innerText: "Shoea",
+  className: "font-bold text-white text-7xl mb-7",
+});
+
+const welcomeDescription = El({
+  element: "p",
+  innerText:
+    "The best sneakers & shoes e-commerse app of the century for your fashion needs!",
+  className: "text-base font-semibold text-white",
+});

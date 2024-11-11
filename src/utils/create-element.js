@@ -1,4 +1,4 @@
-export function El({
+export default function El({
     element,
     children,
     eventListener,
