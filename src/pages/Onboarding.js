@@ -1,8 +1,10 @@
+import { Button } from "../components/button";
 import { Img } from "../components/Img";
+import { Link } from "../components/Link";
 import { router } from "../routes/Router";
 import El from "../utils/create-element";
 
-//--------  Welcome Page ------- 
+//--------  Welcome Page -------
 const welcomeTitle = El({
   element: "h2",
   innerText: "Welcome To 👋",
@@ -48,11 +50,10 @@ const logoTitle = El({
 });
 const spinner = El({
   element: "div",
-  className: "w-12 h-12 bg-white",
+  className: "w-12 h-12 bg-white animate-spin",
   children: [
     Img({
       src: "../assets/svg/spinner.svg",
-      className: "animate-spin",
     }),
   ],
 });
@@ -67,21 +68,57 @@ const Loading = El({
   className: "flex flex-col justify-center items-center pt-96 px-24",
 });
 
-//------  Slides Page ----------
-const Slides = El({
+//------  Slide1 Page ----------
+const SlideImg = El({
+  element: "div",
+  children: [
+    Img({
+      src: "/assets/img/onboarding-bg-1.jpg",
+    }),
+  ],
+  className: "w-[430px] h-[657px]",
+});
+const SlideTitle = El({
+  element: "h1",
+  innerText: "We provide high quality products just for you",
+  className: "text-[32px] text-black font-semibold mb-16",
+});
+const SlideIndicator = El({
   element: "div",
   children: [
     El({
-      element: "h1",
-      innerText: "hello",
-      className: "text-5xl"
+      element: "div",
+      className: "w-8 h-1 bg-black",
+    }),
+    El({
+      element: "div",
+      className: "w-8 h-1 bg-gray-500",
+    }),
+    El({
+      element: "div",
+      className: "w-8 h-1 bg-gray-500",
+    }),
+  ],
+  className: "flex justify-center items-center gap-2 mb-10"
+});
+const SlideBtn = Button({
+  children: [
+    Link({
+      innerText: "Next",
+      href: "/Slide2",
+      className: "text-white"
     })
   ],
+  className: "font-medium text-sm w-96 h-12 py-3 bg-[#212529]"
 })
+const Slide = El({
+  element: "div",
+  children: [SlideImg, SlideTitle, SlideIndicator, SlideBtn],
+  className: "flex flex-col items-center justify-center text-center",
+});
 
-
-
-export default function OnboardingPage() {
+//------  Onboarding Page ----------
+export default function onBoarding() {
   const container = El({
     element: "div",
     children: [Loading],
@@ -92,10 +129,9 @@ export default function OnboardingPage() {
   }, 3000);
 
   setTimeout(() => {
-    const Slide = Slides;
     container.innerHTML = "";
-    container.appendChild(Slide);
-    console.log(container);
+    container.replaceWith(Slide);
+    console.log(Slide);
   }, 5000);
 
   return container;

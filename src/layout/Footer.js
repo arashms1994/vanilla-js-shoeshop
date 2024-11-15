@@ -25,6 +25,7 @@ const footerHomeLink = El({
 // ---- Cart Link ------
 const footerCartIcon = Img({
   src: "../assets/svg/cart-icon.svg",
+  className: "w-10 h-9",
 });
 const footerCartParaph = El({
   element: "p",
@@ -39,12 +40,13 @@ const footerCartLink = El({
       children: [footerCartIcon, footerCartParaph],
     }),
   ],
-  className: "w-8 h-10",
+  className: "w-8 h-12 text-center",
 });
 
 // ---- Orders Link ------
 const footerOrdersIcon = Img({
   src: "../assets/svg/orders-icon.svg",
+  className: "h-11",
 });
 const footerOrdersParaph = El({
   element: "p",
@@ -95,7 +97,7 @@ const footerProfileLink = El({
   element: "div",
   children: [
     Link({
-      href: "/Wallet",
+      href: "/Profile",
       children: [footerProfileIcon, footerProfileParaph],
     }),
   ],
@@ -104,9 +106,10 @@ const footerProfileLink = El({
 
 // ---- Footer ------
 export default function Footer() {
-  El({
+  return El({
     element: "div",
-    className: "px-12 pt-3 pb-4 flex justify-around gap-11",
+    className:
+      "pt-3 pb-4 bg-white flex justify-around px-3 gap-11 items-center fixed bottom-0 z-10 w-screen left-0",
     children: [
       footerHomeLink,
       footerCartLink,

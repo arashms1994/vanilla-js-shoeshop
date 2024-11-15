@@ -1,34 +1,44 @@
-// import Navigo from "navigo";
-// import { changePage } from "../utils/change-page";
-// import Onboarding from "../pages/Onboarding";
-// // import HomePage from "../pages/Home";
-// // import ProductPage from "../pages/Login";
-// // import Checkout from "../pages/Checkout";
-// // import Orders from "../pages/Orders";
-// export const router = new Navigo("/");
-
-// router
-//   .on("/", () => {
-//     changePage(Onboarding);
-//   })
-//   .on("/products/:id", ({ data }) => {
-//     // changePage(HomePage);
-//   })
-//   .on("/cart", () => {
-//     // changePage(Checkout);
-//   });
-
-import Navigo from "navigo";
-import OnBoardingPage from "../pages/Onboarding";
-// import HomePage from "../pages/Home";
 import { changePage } from "../utils/change-page";
+import Navigo from "navigo";
+import onBoarding from "../pages/onBoarding";
+import slide2 from "../pages/slide2";
+import slide3 from "../pages/slide3";
+import login from "../pages/Login";
+import home from "/src/pages/home";
 
 export const router = new Navigo("/");
 
 router
-.on("/", () => {
-changePage(OnBoardingPage);
-})
-.on("/Home", () => {
-// changePage(HomePage); // Set the HomePage component for the "/home" route
-});
+  .on("/", () => {
+    changePage(onBoarding);
+  })
+  .on("/Slide2", () => {
+    changePage(slide2);
+  })
+  .on("/Slide3", () => {
+    changePage(slide3);
+  })
+  .on("/Login", () => {
+    changePage(login);
+  })
+  .on("/Home", () => {
+    changePage(home);
+  })
+  .on("/Products/:brand", (params) => {
+    changePage(productsBrand, params);
+  })
+  .on("/Products/:brand/:id", (params) => {
+    changePage(productDetail, params);
+  })
+  .on("/Cart", () => {
+    changePage(cart);
+  })
+  .on("/Orders", () => {
+    changePage(orders);
+  })
+  .on("/Wallet", () => {
+    changePage(wallet);
+  })
+  .on("/Profile", () => {
+    changePage(profile);
+  });

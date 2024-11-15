@@ -7,9 +7,10 @@ const userAvatar = El({
   children: [
     Img({
       src: "/assets/svg/header-avatar.svg",
+      className: " rounded-full"
     }),
   ],
-  className: "w-12 h-12 rounded-full",
+  className: "w-12 h-12",
 });
 const userWelcome = El({
   element: "div",
@@ -59,9 +60,9 @@ const headerIcons = El({
 
 // ------- Header --------
 export default function Header() {
-  El({
+  return El({
     element: "div",
     children: [userProfile, headerIcons],
-    className: "flex justify-between items-center px-6 py-4",
+    className: "flex justify-between items-center py-4 gap-28",
   });
 }
