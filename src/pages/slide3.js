@@ -2,6 +2,7 @@ import { Button } from "../components/button";
 import { Img } from "../components/Img";
 import { Link } from "../components/Link";
 import El from "../utils/create-element";
+import { router } from "../routes/Router";
 
 const SlideImg = El({
   element: "div",

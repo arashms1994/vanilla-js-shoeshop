@@ -10,6 +10,14 @@ const ProductDisplay = (product) => {
     children: [
       Img({
         src: product.images,
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate(`/${product.id}`);
+            },
+          },
+        ],
       }),
     ],
     className: "w-[182px] h-[182px] rounded-3xl overflow-hidden",
@@ -33,32 +41,16 @@ const ProductDisplay = (product) => {
 };
 
 export default function ProductsContainer() {
-    const Element = El({
-        element: "div",
-        className: "flex justify-between flex-wrap",
+  const Element = El({
+    element: "div",
+    className: "flex justify-between flex-wrap",
+  });
+  GetProducts().then((products) => {
+    products.forEach((product) => {
+      const productCard = ProductDisplay(product);
+      Element.append(productCard);
     });
-    GetProducts().then((products) => {
-        products.forEach((product) => {
-            const productCard = ProductDisplay(product);
-            Element.append(productCard);
-        });
-    });
-    return Element;
+  });
+  return Element;
 }
 
-// export default function ProductsContainer() {
-//     const loadProduct = async (ProductsContainer) => {
-//         try {
-//           const products = await GetProducts();
-//           const productCards = products.map(ProductDisplay);
-//         } catch {
-//           console.error("Failed To LOad");
-//         }
-//       };
-//       loadProduct(ProductsContainer)
-//     return El({
-//         element: "div",
-//         className: "flex justify-between flex-wrap",
-//         children: [...productCards]
-//     });
-// }

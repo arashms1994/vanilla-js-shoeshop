@@ -99,18 +99,18 @@ const SlideIndicator = El({
       className: "w-8 h-1 bg-gray-500",
     }),
   ],
-  className: "flex justify-center items-center gap-2 mb-10"
+  className: "flex justify-center items-center gap-2 mb-10",
 });
 const SlideBtn = Button({
   children: [
     Link({
       innerText: "Next",
       href: "/Slide2",
-      className: "text-white"
-    })
+      className: "text-white",
+    }),
   ],
-  className: "font-medium text-sm w-96 h-12 py-3 bg-[#212529]"
-})
+  className: "font-medium text-sm w-96 h-12 py-3 bg-[#212529]",
+});
 const Slide = El({
   element: "div",
   children: [SlideImg, SlideTitle, SlideIndicator, SlideBtn],
@@ -125,13 +125,13 @@ export default function onBoarding() {
   });
 
   setTimeout(() => {
-    container.replaceWith(welcome);
+    container.innerHTML = "";
+    container.append(welcome);
   }, 3000);
 
   setTimeout(() => {
     container.innerHTML = "";
-    container.replaceWith(Slide);
-    console.log(Slide);
+    container.append(Slide);
   }, 5000);
 
   return container;
