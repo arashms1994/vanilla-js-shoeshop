@@ -37,15 +37,17 @@ const SlideIndicator = El({
   className: "flex justify-center items-center gap-2 mb-10",
 });
 const SlideBtn = Button({
-    children: [
-      Link({
-        children: "Next",
-        href: "/Slide3",
-        className: "text-white",
-      }),
-    ],
-    className: "font-medium text-sm w-96 h-12 py-3 bg-[#212529]",
-  });
+  eventListener: [
+    {
+      event: "click",
+      callback: () => {
+        router.navigate("/Slide3");
+      },
+    },
+  ],
+  innerText: "Next",
+  className: "font-medium text-white text-sm w-96 h-12 py-3 bg-[#212529]",
+});
 
 export default function slide2() {
     return El({

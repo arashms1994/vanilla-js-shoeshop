@@ -10,14 +10,6 @@ const ProductDisplay = (product) => {
     children: [
       Img({
         src: product.images,
-        eventListener: [
-          {
-            event: "click",
-            callback: () => {
-              router.navigate(`/${product.id}`);
-            },
-          },
-        ],
       }),
     ],
     className: "w-[182px] h-[182px] rounded-3xl overflow-hidden",
@@ -36,6 +28,7 @@ const ProductDisplay = (product) => {
   return Link({
     element: "div",
     children: [ProductImg, ProductTitle, ProductPrice],
+    href: `/products/${product.brand}/${product.id}`,
     className: "flex flex-col justify-start w-[182px] h-[244px] gap-2 my-3",
   });
 };
@@ -53,4 +46,3 @@ export default function ProductsContainer() {
   });
   return Element;
 }
-

@@ -1,5 +1,5 @@
 import El from "../utils/create-element"
-import { GetProducts } from "../api/Products";
+import ProductsContainer from "/src/layout/products-display"
 
 export function products(){
     return El({
