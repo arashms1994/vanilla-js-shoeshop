@@ -1,39 +1,39 @@
+import { Img } from "../components/Img";
+import { Link } from "../components/Link";
+import ProductsContainer from "../layout/products-display";
+import { router } from "../routes/Router"
 import El from "../utils/create-element"
-import ProductsContainer from "/src/layout/products-display"
+
+const BackIcon = El({
+    element: "div",
+    children: [
+      Link({
+        children: [
+          Img({
+            src: "/assets/svg/back-icon.svg",
+          }),
+        ],
+        href: "/Home",
+      }),
+    ],
+    className: "w-6 h-6",
+  });
+  const Title = El({
+    element: "h1",
+    children: "All",
+    className: "font-semibold text-xl text-[#152536]"
+  })
+  const Header = El({
+    element: "div",
+    children: [BackIcon, Title],
+    className: "flex gap-3 pl-1 justify-start items-center mb-3"
+  })
+
 
 export function products(){
     return El({
-        element:'div',
-        children:[
-            "All Products"
-        ]
-    })
-}
-
-
-export function productsBrand({data, params}){
-    console.log("params",params)
-    const brand = El({element:"div" ,children:[data.brand] })
-
-
-    return El({
-        element:'div',
-        children:[
-            brand
-        ]
-    })
-}
-
-
-export function productDetail({data}){
-    const brand = El({element:"div" ,children:[data.brand] })
-    const productId = El({element:"div" ,children:[data.id] })
-
-    return El({
-        element:'div',
-        children:[
-            brand,
-            productId
-        ]
+        element: "div",
+        children:[Header, ProductsContainer()],
+        className: "px-6 flex flex-col pt-3"
     })
 }

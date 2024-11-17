@@ -1,3 +1,4 @@
+import { router } from "../routes/Router";
 import El from "../utils/create-element";
 
 const mostPopular = El({
@@ -21,7 +22,7 @@ const seeAll = El({
     {
       event: "click",
       callback: () => {
-        console.log("seeAll");
+        router.navigate("/Products");
       },
     },
   ],

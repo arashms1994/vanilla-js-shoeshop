@@ -19,7 +19,7 @@ const Brands = [
     name: "Converse",
     href: "/Converse",
   },
-  { icon: "/assets/brands-logo/More.svg", name: "More", href: "/More" },
+  { icon: "/assets/brands-logo/More.svg", name: "More", href: "/Products" },
 ];
 
 const createBrandLink = (brand) => {

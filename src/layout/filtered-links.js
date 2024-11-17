@@ -9,7 +9,6 @@ const Brands = [
   { icon: "/assets/brands-logo/Reebok.svg", name: "Reebok", href: "/Reebok" },
   { icon: "/assets/brands-logo/NewBalance.svg", name: "New Ba...", href: "/Newbalance" },
   { icon: "/assets/brands-logo/Converse.svg", name: "Converse", href: "/Converse" },
-  { icon: "/assets/brands-logo/More.svg", name: "More", href: "/More" },
 ];
 
 const All = El({
@@ -21,7 +20,7 @@ const All = El({
     {
       event: "click",
       callback: () => {
-        router.navigate("/All");
+        router.navigate("/Products");
       },
     },
   ],

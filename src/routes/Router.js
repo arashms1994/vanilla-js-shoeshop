@@ -5,7 +5,7 @@ import slide2 from "../pages/slide2";
 import slide3 from "../pages/slide3";
 import login from "../pages/Login";
 import home from "/src/pages/home";
-import { products, productsBrand, productDetail } from "/src/pages/products";
+import { products } from "/src/pages/products";
 
 export const router = new Navigo("/");
 
@@ -25,13 +25,13 @@ router
   .on("/Home", () => {
     changePage(home);
   })
-  .on("/products", () => {
+  .on("/Products", () => {
     changePage(products);
   })
-  .on("/products/:brand", (params) => {
+  .on("/Products/:brand", (params) => {
     changePage(productsBrand, params);
   })
-  .on("/products/:brand/:id", (params) => {
+  .on("/Products/:brand/:id", (params) => {
     changePage(productDetail, params);
   })
   .on("/Cart", () => {
