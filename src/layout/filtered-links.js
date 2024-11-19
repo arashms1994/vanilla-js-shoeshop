@@ -2,13 +2,41 @@ import { router } from "../routes/Router";
 import El from "../utils/create-element";
 
 const Brands = [
-  { icon: "/assets/brands-logo/Nike.svg", name: "Nike", href: "/Nike" },
-  { icon: "/assets/brands-logo/Adidas.svg", name: "Adidas", href: "/Adidas" },
-  { icon: "/assets/brands-logo/Puma.svg", name: "Puma", href: "/Puma" },
-  { icon: "/assets/brands-logo/Asics.svg", name: "Asics", href: "/Asics" },
-  { icon: "/assets/brands-logo/Reebok.svg", name: "Reebok", href: "/Reebok" },
-  { icon: "/assets/brands-logo/NewBalance.svg", name: "New Ba...", href: "/Newbalance" },
-  { icon: "/assets/brands-logo/Converse.svg", name: "Converse", href: "/Converse" },
+  {
+    icon: "/assets/brands-logo/Nike.svg",
+    name: "Nike",
+    href: "/Products/Nike",
+  },
+  {
+    icon: "/assets/brands-logo/Adidas.svg",
+    name: "Adidas",
+    href: "/Products/Adidas",
+  },
+  {
+    icon: "/assets/brands-logo/Puma.svg",
+    name: "Puma",
+    href: "/Products/Puma",
+  },
+  {
+    icon: "/assets/brands-logo/Asics.svg",
+    name: "Asics",
+    href: "/Products/Asics",
+  },
+  {
+    icon: "/assets/brands-logo/Reebok.svg",
+    name: "Reebok",
+    href: "/Products/Reebok",
+  },
+  {
+    icon: "/assets/brands-logo/NewBalance.svg",
+    name: "New Ba...",
+    href: "/Products/Newbalance",
+  },
+  {
+    icon: "/assets/brands-logo/Converse.svg",
+    name: "Converse",
+    href: "/Products/Converse",
+  },
 ];
 
 const All = El({

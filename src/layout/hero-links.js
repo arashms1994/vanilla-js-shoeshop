@@ -4,20 +4,20 @@ import { Img } from "../components/Img";
 import { router } from "../routes/Router";
 
 const Brands = [
-  { icon: "/assets/brands-logo/Nike.svg", name: "Nike", href: "/Nike" },
-  { icon: "/assets/brands-logo/Adidas.svg", name: "Adidas", href: "/Adidas" },
-  { icon: "/assets/brands-logo/Puma.svg", name: "Puma", href: "/Puma" },
-  { icon: "/assets/brands-logo/Asics.svg", name: "Asics", href: "/Asics" },
-  { icon: "/assets/brands-logo/Reebok.svg", name: "Reebok", href: "/Reebok" },
+  { icon: "/assets/brands-logo/Nike.svg", name: "Nike", href: "/Products/Nike" },
+  { icon: "/assets/brands-logo/Adidas.svg", name: "Adidas", href: "/Products/Adidas" },
+  { icon: "/assets/brands-logo/Puma.svg", name: "Puma", href: "/Products/Puma" },
+  { icon: "/assets/brands-logo/Asics.svg", name: "Asics", href: "/Products/Asics" },
+  { icon: "/assets/brands-logo/Reebok.svg", name: "Reebok", href: "/Products/Reebok" },
   {
     icon: "/assets/brands-logo/NewBalance.svg",
     name: "New Ba...",
-    href: "/Newbalance",
+    href: "/Products/Newbalance",
   },
   {
     icon: "/assets/brands-logo/Converse.svg",
     name: "Converse",
-    href: "/Converse",
+    href: "/Products/Converse",
   },
   { icon: "/assets/brands-logo/More.svg", name: "More", href: "/Products" },
 ];
@@ -44,7 +44,7 @@ const createBrandLink = (brand) => {
   const brandName = El({
     element: "p",
     innerText: brand.name,
-    className: "font-semibold text-sm text-[#152536]",
+    className: "font-semibold text-sm text-[#152536] mt-1",
   });
   return El({
     element: "div",
@@ -59,7 +59,7 @@ export default function HeroLinks() {
   const BrandsLinks = Brands.map(createBrandLink);
   return El({
     element: "div",
-    className: "px-2 py-3 flex flex-wrap gap-10",
+    className: "px-2 py-4 flex flex-wrap gap-10",
     children: BrandsLinks,
   });
 }

@@ -25,8 +25,7 @@ const Logo = El({
   element: "div",
     children: [
       Img({
-        src: "/assets/svg/logo.svg",
-        className: ""
+        src: "/assets/svg/logo-black.svg",
       }),
     ],
   className: "h-20 w-14",
@@ -96,13 +95,12 @@ const CheckBox = El({
       className: "w-5 h-5",
     }),
     El({
-      element: "label",
-      for: "RememberMe",
-      innerText: "Remember Me",
-      className: "",
+      element: "p",
+      innerText: "Remember me",
+      className: "text-base font-normal text-[#212529]"
     }),
   ],
-  className: "flex justify-center items-center gap-3",
+  className: "flex justify-center items-center",
 });
 
 // ------- button ----------

@@ -8,24 +8,34 @@ import El from "../utils/create-element";
 const welcomeTitle = El({
   element: "h2",
   innerText: "Welcome To 👋",
-  className: "text-white text-4xl font-semibold mb-4",
+  className: "text-white text-4xl font-semibold mb-4 z-20",
 });
 const welcomeBrandName = El({
   element: "h1",
   innerText: "Shoea",
-  className: "font-bold text-white text-7xl mb-7",
+  className: "font-bold text-white text-7xl mb-7 z-20",
 });
 const welcomeDescription = El({
   element: "p",
   innerText:
     "The best sneakers & shoes e-commerse app of the century for your fashion needs!",
-  className: "text-base font-semibold text-white",
+  className: "text-base font-semibold text-white z-20",
+});
+const welcomeContainer = El({
+  element: "div",
+  className:
+    "bg-[url('../assets/img/welcome-bg.jpg')] pt-[629px] h-screen px-8 object-fill flex flex-col justify-center z-20",
+  children: [welcomeTitle, welcomeBrandName, welcomeDescription],
+});
+const layer = El({
+  element: "div",
+  className:
+    "bg-gradient-to-b from-[#00000000] to-[#000000CC] w-screen h-screen absolute z-0",
 });
 const welcome = El({
   element: "div",
-  className:
-    "bg-[url('../assets/img/welcome-bg.jpg')] pt-[629px] h-screen px-8 object-fill flex flex-col justify-center",
-  children: [welcomeTitle, welcomeBrandName, welcomeDescription],
+  className: "relative",
+  children: [layer, welcomeContainer],
 });
 
 //-------  Loading Page ----------
