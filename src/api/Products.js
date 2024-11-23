@@ -1,4 +1,4 @@
-import { BaseUrl } from "./config";
+import { BaseUrl } from "/src/api/config";
 
 export async function GetProducts() {
   const response = await fetch(`${BaseUrl}/products`);

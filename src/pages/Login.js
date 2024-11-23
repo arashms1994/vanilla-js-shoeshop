@@ -1,4 +1,4 @@
-import { Back } from "../components/Back";
+import { GetUsers } from "../api/users";
 import { Button } from "../components/button";
 import { Img } from "../components/Img";
 import { Input } from "../components/Input";
@@ -56,7 +56,7 @@ const EmailInput = Input({
   placeholder: "Email",
   type: "email",
   id: "email",
-  className: "bg-transparent w-80 h-9",
+  className: "bg-transparent w-80 h-9 text-sm text-black font-medium",
 });
 const Email = El({
   element: "div",
@@ -78,7 +78,7 @@ const PassWordInput = Input({
   placeholder: "Password",
   type: "password",
   id: "password",
-  className: "bg-transparent w-80 h-9",
+  className: "bg-transparent w-80 h-9 text-sm text-black font-medium",
 });
 const PassWord = El({
   element: "div",
@@ -112,7 +112,29 @@ const FormBtn = Button({
     {
       event: "click",
       callback: () => {
-        router.navigate("/Home");
+        event.preventDefault();
+        const userEmail = document.getElementById("email");
+        const userPass = document.getElementById("password");
+        const emailValue = userEmail.value.trim();
+        const passwordValue = userPass.value.trim();
+        if (!emailValue || !passwordValue) {
+          alert("Empty Email or Password");
+          return;
+        }
+        let users = [];
+        GetUsers().then((users) => {
+          users = users;
+          const user = users.find((user) => user.email === userEmail.value);
+          if (!user) {
+            alert("User does not Exist");
+            return;
+          }
+          if (user.password !== passwordValue) {
+            alert("Password Is incorrect");
+            return;
+          }
+          router.navigate("/Home");
+        });
       },
     },
   ],
@@ -134,34 +156,3 @@ export default function login() {
       "relative flex flex-col items-center text-center justify-center pt-32",
   });
 }
-
-
-// event: "click",
-// callback: () => {
-// event.preventDefault();
-// const email = document.getElementById("inputemail");
-// const password = document.getElementById("passinput");
-// const emailValue = email.value.trim();
-// const passwordValue = password.value.trim();
-// if (!emailValue || !passwordValue) {
-// alert("empty email or password");
-// return;
-// }
-// let users = [];
-// getUser().then((users) => {
-// users = users;
-// const user = users.find((user) => user.email === email.value);
-// if (!user) {
-// alert("user not exsist");
-// return;
-// }
-// if (user.password !== passwordValue) {
-// alert("password incorrect");
-// return;
-// }
-// router.navigate("/page2")
-// });
-// },
-// },
-// ],
-// });

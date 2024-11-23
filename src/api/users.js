@@ -1,4 +1,4 @@
-import { BaseUrl } from "./confug";
+import { BaseUrl } from "/src/api/config";
 
 export async function GetUsers() {
   const response = await fetch(`${BaseUrl}/users`);

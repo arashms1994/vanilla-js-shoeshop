@@ -40,6 +40,7 @@ const Brands = [
   },
 ];
 
+// ====== CReate Links
 const All = El({
   element: "div",
   innerText: "All",
@@ -54,6 +55,7 @@ const All = El({
     },
   ],
 });
+
 const createBrandFilter = (brand) =>
   El({
     element: "div",
@@ -65,27 +67,25 @@ const createBrandFilter = (brand) =>
         event: "click",
         callback: () => {
           filterProductsByBrand(brand.href);
-          console.log(brand.href);
         },
       },
     ],
   });
 
+// ========= Get Products ========
 async function filterProductsByBrand(brand) {
-
   const Products = await GetProducts();
-
   Products.forEach((product) => {
     const productElement = document.querySelector(`#product-${product.id}`);
     if (brand === "All" || product.brand === brand) {
-    productElement.classList.remove("hidden");
+      productElement.classList.remove("hidden");
     } else {
-    productElement.classList.add("hidden");
+      productElement.classList.add("hidden");
     }
   });
 }
 
-
+// ======= Filter ============
 export default function FilterLinks() {
   const BrandsFilter = Brands.map(createBrandFilter);
   return El({
@@ -94,4 +94,3 @@ export default function FilterLinks() {
     className: "flex justify-between items-center gap-3 overflow-scroll mb-3",
   });
 }
-
