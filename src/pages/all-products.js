@@ -63,4 +63,3 @@ products = products
 const brands = products.map((product) => product.brand)
 console.log(brands);
 })
-
