@@ -7,7 +7,7 @@ import Footer from "/src/layout/footer";
 import Header from "/src/layout/header";
 import HeroLinks from "/src/layout/hero-links";
 import FilterLinks from "../layout/filtered-links";
-import ProductsContainer from "../layout/products-display";
+import ProductsContainer from "/src/layout/products-display";
 
 export default function homePage() {
   return El({

@@ -29,7 +29,7 @@ const ProductDisplay = (product) => {
   return Link({
     element: "div",
     children: [ProductImg, ProductTitle, ProductPrice],
-    href: `/products/${product.brand}/${product.id}`,
+    href: `/products/${product.id}`,
     className: "flex flex-col justify-start w-[182px] h-[244px] gap-1 my-3",
   });
 };

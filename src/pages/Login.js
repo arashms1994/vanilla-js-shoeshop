@@ -1,3 +1,4 @@
+import { Back } from "../components/Back";
 import { Button } from "../components/button";
 import { Img } from "../components/Img";
 import { Input } from "../components/Input";
@@ -23,11 +24,11 @@ const BackIcon = El({
 // ------ hero section --------
 const Logo = El({
   element: "div",
-    children: [
-      Img({
-        src: "/assets/svg/logo-black.svg",
-      }),
-    ],
+  children: [
+    Img({
+      src: "/assets/svg/logo-black.svg",
+    }),
+  ],
   className: "h-20 w-14",
 });
 const Title = El({
@@ -97,7 +98,7 @@ const CheckBox = El({
     El({
       element: "p",
       innerText: "Remember me",
-      className: "text-base font-normal text-[#212529]"
+      className: "text-base font-normal text-[#212529]",
     }),
   ],
   className: "flex justify-center items-center",

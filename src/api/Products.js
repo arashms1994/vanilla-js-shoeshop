@@ -1,4 +1,4 @@
-import { BaseUrl } from "./confug";
+import { BaseUrl } from "./config";
 
 export async function GetProducts() {
   const response = await fetch(`${BaseUrl}/products`);
@@ -11,3 +11,9 @@ export async function GetProductsId(id) {
   const Product = await response.json();
   return Product;
 }
+
+// GetProducts().then((products) => {
+//   let products = products
+//   const brands = products.map((product) => product.brand)
+//   console.log(brands);
+//   })

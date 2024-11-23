@@ -4,20 +4,20 @@ import { Img } from "../components/Img";
 import { router } from "../routes/Router";
 
 const Brands = [
-  { icon: "/assets/brands-logo/Nike.svg", name: "Nike", href: "/Products/Nike" },
-  { icon: "/assets/brands-logo/Adidas.svg", name: "Adidas", href: "/Products/Adidas" },
-  { icon: "/assets/brands-logo/Puma.svg", name: "Puma", href: "/Products/Puma" },
-  { icon: "/assets/brands-logo/Asics.svg", name: "Asics", href: "/Products/Asics" },
-  { icon: "/assets/brands-logo/Reebok.svg", name: "Reebok", href: "/Products/Reebok" },
+  { icon: "/assets/brands-logo/Nike.svg", name: "Nike", href: "/nike" },
+  { icon: "/assets/brands-logo/Adidas.svg", name: "Adidas", href: "/adidas" },
+  { icon: "/assets/brands-logo/Puma.svg", name: "Puma", href: "/puma" },
+  { icon: "/assets/brands-logo/Asics.svg", name: "Asics", href: "/asics" },
+  { icon: "/assets/brands-logo/Reebok.svg", name: "Reebok", href: "/reebok" },
   {
     icon: "/assets/brands-logo/NewBalance.svg",
     name: "New Ba...",
-    href: "/Products/Newbalance",
+    href: "/newbalance",
   },
   {
     icon: "/assets/brands-logo/Converse.svg",
     name: "Converse",
-    href: "/Products/Converse",
+    href: "/converse",
   },
   { icon: "/assets/brands-logo/More.svg", name: "More", href: "/Products" },
 ];
@@ -33,9 +33,7 @@ const createBrandLink = (brand) => {
         eventListener: [
           {
             event: "click",
-            callback: () => {
-              router.navigate(brand.href);
-            },
+            callback: () => router.navigate(`/Home${brand.href}`),
           },
         ],
       }),

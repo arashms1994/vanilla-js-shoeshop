@@ -1,4 +1,5 @@
 import { GetProducts } from "../api/Products";
+import { Back } from "../components/Back";
 import { Img } from "../components/Img";
 import { Link } from "../components/Link";
 import El from "../utils/create-element";
@@ -48,27 +49,28 @@ const LikeIcon = El({
 });
 
 const Header = El({
-    element: "div",
-    className: "flex items-center justify-between px-6",
-    children: [Title, LikeIcon]
-})
+  element: "div",
+  className: "flex items-center justify-between px-6",
+  children: [Title, LikeIcon],
+});
 //   ====== Description ========
 const DescriptionTitle = El({
-    element: "h1",
-    innerText: "Description",
-    className: "font-bold text-xl",
-  });
+  element: "h1",
+  innerText: "Description",
+  className: "font-bold text-xl",
+});
 
-  const DescriptionParaph = El({
-    element: "p",
-    className: "text-sm font-normal",
-    innerText: "In ultricies fermentum aliquet. Pellentesque dui magna, condimentum non ullamcorp view more..."
-  })
+const DescriptionParaph = El({
+  element: "p",
+  className: "text-sm font-normal",
+  innerText:
+    "In ultricies fermentum aliquet. Pellentesque dui magna, condimentum non ullamcorp view more...",
+});
 const Description = El({
-    element: "div",
-    className: "px-6 flex flex-col items-start justify-start",
-    children: [DescriptionTitle, DescriptionParaph]
-})
+  element: "div",
+  className: "px-6 flex flex-col items-start justify-start",
+  children: [DescriptionTitle, DescriptionParaph],
+});
 
 // export default function Productcard() {
 //   const Element = El({
