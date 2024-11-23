@@ -30,7 +30,8 @@ const ProductDisplay = (product) => {
     element: "div",
     children: [ProductImg, ProductTitle, ProductPrice],
     href: `/products/${product.id}`,
-    className: "flex flex-col justify-start w-[182px] h-[244px] gap-1 my-3",
+    className: `flex flex-col justify-start w-[182px] h-[244px] gap-1 my-3 ${product.title}`,
+    id: `product-${product.id}`
   });
 };
 

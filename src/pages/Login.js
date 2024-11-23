@@ -134,3 +134,34 @@ export default function login() {
       "relative flex flex-col items-center text-center justify-center pt-32",
   });
 }
+
+
+// event: "click",
+// callback: () => {
+// event.preventDefault();
+// const email = document.getElementById("inputemail");
+// const password = document.getElementById("passinput");
+// const emailValue = email.value.trim();
+// const passwordValue = password.value.trim();
+// if (!emailValue || !passwordValue) {
+// alert("empty email or password");
+// return;
+// }
+// let users = [];
+// getUser().then((users) => {
+// users = users;
+// const user = users.find((user) => user.email === email.value);
+// if (!user) {
+// alert("user not exsist");
+// return;
+// }
+// if (user.password !== passwordValue) {
+// alert("password incorrect");
+// return;
+// }
+// router.navigate("/page2")
+// });
+// },
+// },
+// ],
+// });

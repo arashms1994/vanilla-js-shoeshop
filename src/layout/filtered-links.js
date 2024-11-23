@@ -40,7 +40,6 @@ const Brands = [
   },
 ];
 
-
 const All = El({
   element: "div",
   innerText: "All",
@@ -65,27 +64,27 @@ const createBrandFilter = (brand) =>
       {
         event: "click",
         callback: () => {
-          console.log(brand.href);
           filterProductsByBrand(brand.href);
+          console.log(brand.href);
         },
       },
     ],
   });
 
-  
-  function filterProductsByBrand(brand) {
-    GetProducts().then((products) => {
-      const Products = products;
-      const productsBrand = products.map((product) => product.brand);
-      productsBrand.forEach((product) => {
-        if(!brand === product.brand) {
-          product.className.add("hidden")
-        } else if (brand === "All" || brand === product.brand) {
-          product.classList.toggle("block")
-        }
-      });
-    });
-  }
+async function filterProductsByBrand(brand) {
+
+  const Products = await GetProducts();
+
+  Products.forEach((product) => {
+    const productElement = document.querySelector(`#product-${product.id}`);
+    if (brand === "All" || product.brand === brand) {
+    productElement.classList.remove("hidden");
+    } else {
+    productElement.classList.add("hidden");
+    }
+  });
+}
+
 
 export default function FilterLinks() {
   const BrandsFilter = Brands.map(createBrandFilter);
@@ -96,44 +95,3 @@ export default function FilterLinks() {
   });
 }
 
-
-
-
-// const All = El({
-//   element: "div",
-//   innerText: "All",
-//   className:
-//     "font-semibold text-white bg-[#343A40] text-base rounded-3xl px-5 py-2",
-//   eventListener: [
-//     {
-//       event: "click",
-//       callback: () => {
-//         router.navigate("/Products");
-//       },
-//     },
-//   ],
-// });
-// const createBrandFilter = (brand) =>
-//   El({
-//     element: "div",
-//     innerText: brand.name,
-//     className:
-//       "font-semibold border-[#343A40] border-[2px] text-[#343A40] text-base rounded-3xl px-5 py-2",
-//     eventListener: [
-//       {
-//         event: "click",
-//         callback: () => {
-//           router.navigate(brand.href);
-//         },
-//       },
-//     ],
-//   });
-
-// export default function FilterLinks() {
-//   const BrandsFilter = Brands.map(createBrandFilter);
-//   return El({
-//     element: "div",
-//     children: [All, ...BrandsFilter],
-//     className: "flex justify-between items-center gap-3 overflow-scroll mb-3",
-//   });
-// }
