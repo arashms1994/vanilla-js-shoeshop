@@ -132,6 +132,9 @@ const FormBtn = Button({
           if (user.password !== passwordValue) {
             alert("Password Is incorrect");
             return;
+          } else {
+            localStorage.setItem("userId", user.id);
+            localStorage.setItem("userEmail", user.email);
           }
           router.navigate("/Home");
         });

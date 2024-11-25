@@ -57,9 +57,9 @@ export function allProducts() {
   });
 }
 
-let products= []
-GetProducts().then((products) => {
-products = products
-const brands = products.map((product) => product.brand)
-console.log(brands);
-})
+// let products= []
+// GetProducts().then((products) => {
+// products = products
+// const brands = products.map((product) => product.brand)
+// console.log(brands);
+// })

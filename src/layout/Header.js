@@ -1,5 +1,7 @@
+import { GetUsersId } from "../api/users";
 import { Img } from "../components/Img";
 import El from "../utils/create-element";
+
 
 // ------- Profile User --------
 const userAvatar = El({
@@ -18,12 +20,12 @@ const userWelcome = El({
     El({
       element: "p",
       innerText: "Good Morning 👋",
-      className: "text-base text-gray-500 font-medium mb-2",
+      className: "text-base text-gray-500 font-medium",
     }),
     El({
       element: "p",
-      innerText: "Saeed Abdilar",
-      className: "text-base text-black font-bold",
+      id: "userName",
+      className: "text-lg text-black font-bold",
     }),
   ],
 });
@@ -58,8 +60,24 @@ const headerIcons = El({
   className: "flex justify-between items-center gap-4 w-16 h-6",
 });
 
+// ========= USer Fetch =====
+
+async function LoadUser() {
+  const UserId = localStorage.getItem("userId")
+   if(UserId) 
+    try {
+      const user = await GetUsersId(UserId);
+      console.log(user)
+      document.getElementById("userName").textContent = user.name
+   } catch {
+    console.log("Error Fetching User Data;", error)
+   }
+   return;
+}
+
 // ------- Header --------
 export default function Header() {
+  LoadUser()
   return El({
     element: "div",
     children: [userProfile, headerIcons],
