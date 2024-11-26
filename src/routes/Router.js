@@ -7,6 +7,7 @@ import login from "../pages/Login";
 import home from "/src/pages/home";
 import { allProducts } from "/src/pages/all-products";
 import filterBrands from "../components/filter/filter";
+import popular from "../pages/popular";
 
 export const router = new Navigo("/");
 
@@ -35,6 +36,9 @@ router
   })
   .on("/Products/:productid", (params) => {
     changePage(productDetail, params);
+  })
+  .on("/Popular", () => {
+    changePage(popular);
   })
   .on("/Cart", () => {
     changePage(cart);

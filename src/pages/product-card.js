@@ -1,9 +1,32 @@
-import { GetProducts } from "../api/Products";
+import { GetProducts, GetProductsId } from "../api/Products";
 import { Back } from "../components/Back";
 import { Img } from "../components/Img";
 import { Link } from "../components/Link";
 import El from "../utils/create-element";
 import FilterLinks from "./filtered-links";
+
+// ====== GEt Producy DAta =========
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('id');
+if (productId) {
+  GetProductsId(productId)
+    .then(product => {
+
+      document.getElementById('product-name').innerText = product.name;
+      document.getElementById('product-description').innerText = product.description;
+      document.getElementById('product-price').innerText = `$${product.price}`;
+      
+    })
+    .catch(error => {
+      console.error('خطا در دریافت اطلاعات محصول:', error);
+      document.body.innerHTML = `<h1>خطا: محصول یافت نشد</h1>`;
+    });
+} else {
+  document.body.innerHTML = `<h1>خطا: آیدی محصول موجود نیست</h1>`;
+}
+
+
+
 
 //   ====== back and Img ========
 const BackIcon = El({
@@ -72,16 +95,6 @@ const Description = El({
   children: [DescriptionTitle, DescriptionParaph],
 });
 
-// export default function Productcard() {
-//   const Element = El({
-//     element: "div",
-//     className: "flex justify-between flex-wrap",
-//   });
-//   GetProducts().then((products) => {
-//     products.forEach((product) => {
-//       const productCard = ProductDisplay(product);
-//       Element.append(productCard);
-//     });
-//   });
-//   return Element;
-// }
+const Size = (product) => {
+
+}

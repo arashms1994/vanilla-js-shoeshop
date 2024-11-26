@@ -5,11 +5,12 @@ const mostPopular = El({
   element: "p",
   innerText: "Most Popular",
   className: "font-semibold text-[#152536] text-xl",
+  id: "mostPopular",
   eventListener: [
     {
       event: "click",
       callback: () => {
-        console.log("mostPopular");
+        router.navigate("/Popular")
       },
     },
   ],

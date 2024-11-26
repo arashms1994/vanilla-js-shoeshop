@@ -98,3 +98,10 @@ export default function filterBrands(brandName) {
       document.getElementById("app").appendChild(errorMessage);
     });
 }
+
+
+// selected = ["puma","addidas"]
+
+// علی ضیایی - مربی
+// 11:15 PM
+// product.filter(item=> selected.contains(item.brand)

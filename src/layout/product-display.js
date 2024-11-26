@@ -7,7 +7,7 @@ const ProductDisplay = (product) => {
     element: "div",
     children: [
       Img({
-        src: product.images, // مسیر تصویر محصول
+        src: product.images,
         className: "rounded-3xl",
       }),
     ],
@@ -16,20 +16,20 @@ const ProductDisplay = (product) => {
 
   const ProductTitle = El({
     element: "p",
-    innerText: product.title, // عنوان محصول
+    innerText: product.title,
     className: "text-xl text-[#152536] font-bold",
   });
 
   const ProductPrice = El({
     element: "p",
-    innerText: `$ ${product.price}`, // قیمت محصول
+    innerText: `$ ${product.price}`,
     className: "text-base text-[#152536] font-semibold",
   });
 
   return Link({
     element: "div",
     children: [ProductImg, ProductTitle, ProductPrice],
-    href: `/products/${product.id}`, // لینک محصول
+    href: `/products/${product.id}`, 
     className: "flex flex-col justify-start w-[182px] h-[244px] gap-1 my-3",
   });
 };
