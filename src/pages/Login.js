@@ -84,7 +84,7 @@ const PassWord = El({
   element: "div",
   children: [PassWordIcon, PassWordInput],
   className:
-    "flex justify-start items-center mt-5 mb-10 px-2 bg-slate-200 rounded-md",
+    "flex justify-start items-center mt-5 mb-6 px-2 bg-slate-200 rounded-md",
 });
 
 //   ---- checkbox ---------
@@ -104,6 +104,32 @@ const CheckBox = El({
   className: "flex justify-center items-center",
 });
 
+//====== Wrong Input =======
+const WrongParaph = El({
+  element: "div",
+  className: "text-center border-red-600 border-b-2 mt-2 hidden",
+  id: "wrongParaph",
+  children: [
+    El({
+      element: "p",
+      innerText: "User Name or Password Is incorrect!",
+      className: "text-base text-red-600 ",
+    }),
+  ],
+});
+const EmptyParaph = El({
+  element: "div",
+  className: "text-center border-red-600 border-b-2 mt-2 hidden",
+  id: "emptyParaph",
+  children: [
+    El({
+      element: "p",
+      innerText: "Please Fill The Blanks",
+      className: "text-base text-red-600 ",
+    }),
+  ],
+});
+
 // ------- button ----------
 const FormBtn = Button({
   className: "py-3 w-full h-12 bg-[#212529] mt-64 text-white",
@@ -115,22 +141,20 @@ const FormBtn = Button({
         event.preventDefault();
         const userEmail = document.getElementById("email");
         const userPass = document.getElementById("password");
+        const wrongParaph = document.getElementById("wrongParaph");
+        const emptyParaph = document.getElementById("emptyParaph");
         const emailValue = userEmail.value.trim();
         const passwordValue = userPass.value.trim();
         if (!emailValue || !passwordValue) {
-          alert("Empty Email or Password");
+          emptyParaph.classList.toggle("hidden");
           return;
         }
         let users = [];
         GetUsers().then((users) => {
           users = users;
           const user = users.find((user) => user.email === userEmail.value);
-          if (!user) {
-            alert("User does not Exist");
-            return;
-          }
-          if (user.password !== passwordValue) {
-            alert("Password Is incorrect");
+          if (!user || user.password !== passwordValue) {
+            wrongParaph.classList.toggle("hidden");
             return;
           } else {
             localStorage.setItem("userId", user.id);
@@ -146,8 +170,8 @@ const FormBtn = Button({
 // ------- form --------
 const Form = El({
   element: "form",
-  children: [Email, PassWord, CheckBox, FormBtn],
-  className: "flex flex-col items-center justify-center",
+  children: [Email, PassWord, CheckBox, WrongParaph, EmptyParaph, FormBtn],
+  className: "flex flex-col items-center justify-center pb-3",
 });
 
 // ---------- Login -------

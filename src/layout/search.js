@@ -18,6 +18,12 @@ export function SearchContainer() {
     id: "search",
     className: "w-80 h-9",
   });
+  const Result = El({
+    element: "div",
+    id: "result",
+    className: "hidden h-full w-full z-50",
+
+  })
   return El({
     element: "div",
     children: [SearchIcon, SearchInput],
