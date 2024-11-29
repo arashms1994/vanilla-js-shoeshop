@@ -9,6 +9,7 @@ import { allProducts } from "/src/pages/all-products";
 import filterBrands from "../components/filter/filter";
 import popular from "../pages/popular";
 import productCard from "../pages/product-card";
+import cartPage from "../pages/cart";
 
 export const router = new Navigo("/");
 
@@ -46,7 +47,7 @@ router
     productCard(productId);
   })
   .on("/Cart", () => {
-    changePage(cart);
+    changePage(cartPage);
   })
   .on("/Orders", () => {
     changePage(orders);

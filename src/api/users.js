@@ -18,9 +18,7 @@ export async function addUser() {
     userList.length > 0
       ? Math.max(...userList.map((user) => parseInt(user.id))) + 1
       : 1;
-  //   let name = prompt("Enter a name: ");
-  //   let email = prompt("Enter Email: ");
-  //   let password = prompt("Enter Password: ");
+
   fetch(`${BaseUrl}/users`, {
     method: "POST",
     body: JSON.stringify({

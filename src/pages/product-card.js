@@ -88,7 +88,7 @@ export default async function productCard(productId) {
                 shipping: "Pending",
               };
               addToCart(cartProduct);
-              console.table(cartProduct);
+              console.log(cartProduct);
             }
           },
         },
