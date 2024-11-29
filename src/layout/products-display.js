@@ -29,12 +29,12 @@ const ProductDisplay = (product) => {
   return Link({
     element: "div",
     children: [ProductImg, ProductTitle, ProductPrice],
-    href: `/products/${product.id}`,
+    href: `/Home/products/${product.id}`,
     className: `flex flex-col justify-start w-[182px] h-[244px] gap-1 my-3 ${product.title}`,
-    id: `${product.id}`,
+    id: `product-${product.id}`,
   });
 };
-
+// href: `/products/${product.id}`
 export default function ProductsContainer() {
   const Element = El({
     element: "div",

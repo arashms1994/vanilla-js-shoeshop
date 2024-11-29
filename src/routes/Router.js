@@ -8,6 +8,7 @@ import home from "/src/pages/home";
 import { allProducts } from "/src/pages/all-products";
 import filterBrands from "../components/filter/filter";
 import popular from "../pages/popular";
+import productCard from "../pages/product-card";
 
 export const router = new Navigo("/");
 
@@ -39,6 +40,10 @@ router
   })
   .on("/Popular", () => {
     changePage(popular);
+  })
+  .on("/Home/products/:productId", ({ data }) => {
+    const { productId } = data;
+    productCard(productId);
   })
   .on("/Cart", () => {
     changePage(cart);

@@ -56,10 +56,3 @@ export function allProducts() {
     className: "px-6 flex flex-col pt-3",
   });
 }
-
-// let products= []
-// GetProducts().then((products) => {
-// products = products
-// const brands = products.map((product) => product.brand)
-// console.log(brands);
-// })
