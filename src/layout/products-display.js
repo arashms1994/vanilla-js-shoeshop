@@ -10,7 +10,7 @@ const ProductDisplay = (product) => {
     children: [
       Img({
         src: product.images,
-        className: "rounded-3xl"
+        className: "rounded-3xl",
       }),
     ],
     className: "w-[182px] h-[182px] rounded-3xl overflow-hidden",
@@ -29,11 +29,12 @@ const ProductDisplay = (product) => {
   return Link({
     element: "div",
     children: [ProductImg, ProductTitle, ProductPrice],
-    href: `/products/${product.brand}/${product.id}`,
-    className: "flex flex-col justify-start w-[182px] h-[244px] gap-1 my-3",
+    href: `/Home/products/${product.id}`,
+    className: `flex flex-col justify-start w-[182px] h-[244px] gap-1 my-3 ${product.title}`,
+    id: `product-${product.id}`,
   });
 };
-
+// href: `/products/${product.id}`
 export default function ProductsContainer() {
   const Element = El({
     element: "div",

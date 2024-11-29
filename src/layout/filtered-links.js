@@ -1,3 +1,4 @@
+import { GetProducts } from "../api/Products";
 import { router } from "../routes/Router";
 import El from "../utils/create-element";
 
@@ -5,40 +6,41 @@ const Brands = [
   {
     icon: "/assets/brands-logo/Nike.svg",
     name: "Nike",
-    href: "/Products/Nike",
+    href: "nike",
   },
   {
     icon: "/assets/brands-logo/Adidas.svg",
     name: "Adidas",
-    href: "/Products/Adidas",
+    href: "adidas",
   },
   {
     icon: "/assets/brands-logo/Puma.svg",
     name: "Puma",
-    href: "/Products/Puma",
+    href: "puma",
   },
   {
     icon: "/assets/brands-logo/Asics.svg",
     name: "Asics",
-    href: "/Products/Asics",
+    href: "asics",
   },
   {
     icon: "/assets/brands-logo/Reebok.svg",
     name: "Reebok",
-    href: "/Products/Reebok",
+    href: "reebok",
   },
   {
     icon: "/assets/brands-logo/NewBalance.svg",
     name: "New Ba...",
-    href: "/Products/Newbalance",
+    href: "newbalance",
   },
   {
     icon: "/assets/brands-logo/Converse.svg",
     name: "Converse",
-    href: "/Products/Converse",
+    href: "converse",
   },
 ];
 
+// ====== CReate Links
 const All = El({
   element: "div",
   innerText: "All",
@@ -48,11 +50,12 @@ const All = El({
     {
       event: "click",
       callback: () => {
-        router.navigate("/Products");
+        filterProductsByBrand("All");
       },
     },
   ],
 });
+
 const createBrandFilter = (brand) =>
   El({
     element: "div",
@@ -63,12 +66,26 @@ const createBrandFilter = (brand) =>
       {
         event: "click",
         callback: () => {
-          router.navigate(brand.href);
+          filterProductsByBrand(brand.href);
         },
       },
     ],
   });
 
+// ========= Get Products ========
+async function filterProductsByBrand(brand) {
+  const Products = await GetProducts();
+  Products.forEach((product) => {
+    const productElement = document.querySelector(`#product-${product.id}`);
+    if (brand === "All" || product.brand === brand) {
+      productElement.classList.remove("hidden");
+    } else {
+      productElement.classList.add("hidden");
+    }
+  });
+}
+
+// ======= Filter ============
 export default function FilterLinks() {
   const BrandsFilter = Brands.map(createBrandFilter);
   return El({

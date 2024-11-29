@@ -5,7 +5,11 @@ import slide2 from "../pages/slide2";
 import slide3 from "../pages/slide3";
 import login from "../pages/Login";
 import home from "/src/pages/home";
-import { products } from "/src/pages/products";
+import { allProducts } from "/src/pages/all-products";
+import filterBrands from "../components/filter/filter";
+import popular from "../pages/popular";
+import productCard from "../pages/product-card";
+import cartPage from "../pages/cart";
 
 export const router = new Navigo("/");
 
@@ -26,16 +30,24 @@ router
     changePage(home);
   })
   .on("/Products", () => {
-    changePage(products);
+    changePage(allProducts);
   })
-  .on("/Products/:brand", (params) => {
-    changePage(productsBrand, params);
+  .on("/Home/:brandName", ({ data }) => {
+    const { brandName } = data;
+    filterBrands(brandName);
   })
-  .on("/Products/:brand/:id", (params) => {
+  .on("/Products/:productid", (params) => {
     changePage(productDetail, params);
   })
+  .on("/Popular", () => {
+    changePage(popular);
+  })
+  .on("/Home/products/:productId", ({ data }) => {
+    const { productId } = data;
+    productCard(productId);
+  })
   .on("/Cart", () => {
-    changePage(cart);
+    changePage(cartPage);
   })
   .on("/Orders", () => {
     changePage(orders);
